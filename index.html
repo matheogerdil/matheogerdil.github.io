@@ -3,57 +3,90 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- REND RESPONSIVE -->
     <title>Compte à rebours</title>
+
+    <!-- Police effrayante -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+
     <style>
+        /* --- STYLE GLOBAL --- */
+        
         body {
             margin: 0;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #0b0f1a;
+            background: #000000;
             color: white;
-            font-family: sans-serif;
+            font-family: 'Creepster', cursive;
             flex-direction: column;
+            text-align: center;
         }
         
         h1 {
-            font-size: 2em;
+            font-size: clamp(2rem, 6vw, 4rem);
             margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 8px #ff0000;
         }
         
         .count {
             display: flex;
             gap: 20px;
-            font-size: 2em;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
         .unit {
             text-align: center;
+            min-width: 80px;
         }
         
         .label {
             display: block;
-            font-size: 0.6em;
+            font-size: clamp(0.6rem, 2vw, 1rem);
             color: #aaa;
-        }
-        
-        .lienInsta {
-            width: 20%;
-            height: 40%;
+            margin-top: 5px;
         }
         
         #days,
         #hours,
         #minutes,
         #seconds {
-            color: red;
+            color: white;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+        }
+        /* --- INSTAGRAM --- */
+        
+        .lienInsta img {
+            width: clamp(50px, 20vw, 120px);
+            height: auto;
+            margin-top: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .lienInsta img:hover {
+            transform: scale(1.1);
+        }
+        /* --- PETITS ÉCRANS --- */
+        
+        @media (max-width: 600px) {
+            .count {
+                gap: 10px;
+            }
+            .unit {
+                min-width: 60px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1>Compte à rebours</h1>
+    <h1>Le compte à rebours a commencé...</h1>
     <div class="count">
         <div class="unit"><span id="days">00</span><span class="label">Jours</span></div>
         <div class="unit"><span id="hours">00</span><span class="label">Heures</span></div>
@@ -61,7 +94,8 @@
         <div class="unit"><span id="seconds">00</span><span class="label">Secondes</span></div>
     </div>
 
-    <a class="lienInsta" href="https://www.instagram.com/matheovodk/"><img src="inta.png" alt=""></a>
+    <a class="lienInsta" href="https://www.instagram.com/matheovodk/"><img src="inta.png" alt="Instagram"></a>
+
     <script>
         const targetDate = new Date("2025-09-29T09:00:00").getTime();
 
@@ -70,7 +104,7 @@
             const diff = targetDate - now;
 
             if (diff <= 0) {
-                document.body.innerHTML = "<h1>🎉 Le moment est arrivé ! 🎉</h1>";
+                document.body.innerHTML = "<h1>🎃 Le moment est arrivé ! 👻</h1>";
                 clearInterval(interval);
                 return;
             }
