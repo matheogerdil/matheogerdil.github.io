@@ -1,0 +1,204 @@
+
+:root {
+    /* Palette extraite de ton image */
+    --couleur-violet-electrique: #8A16EF;
+    --couleur-olive: #A9B02C;
+    --couleur-jaune-neon: #E3F000;
+    --couleur-violet-moyen: #6B349B;
+    --couleur-vert-fonce: #6D7038;
+    --couleur-fond-sombre: #3B2E46; /* Utilisé pour le background principal */
+    
+    /* Couleurs pour le texte */
+    --texte-blanc: #ffffff;
+    --texte-gris: #e0e0e0;
+}
+
+/* --- RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--couleur-fond-sombre);
+    color: var(--texte-blanc);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- NAVIGATION --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(59, 46, 70, 0.95); /* Légère transparence sur le fond sombre */
+    top: 0;
+    border-bottom: 2px solid var(--couleur-violet-moyen);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--couleur-jaune-neon);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a:hover {
+    color: var(--couleur-jaune-neon);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 110vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, var(--couleur-violet-moyen) 0%, var(--couleur-fond-sombre) 70%);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    box-shadow: 5px -3px 50px 8px #E3F000;
+}
+
+.highlight {
+    color: var(--couleur-violet-electrique);
+    background: var(--couleur-jaune-neon); /* Contraste fort */
+    padding: 0 10px;
+    display: inline-block;
+    transform: skew(-5deg);
+}
+
+.subtitle {
+    color: var(--couleur-olive);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.description {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: var(--texte-gris);
+    font-size: 1.1rem;
+}
+
+/* --- BOUTONS --- */
+.btn {
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--couleur-violet-electrique);
+    color: var(--texte-blanc);
+    box-shadow: 0 4px 15px rgba(138, 22, 239, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: var(--couleur-jaune-neon);
+    color: var(--couleur-fond-sombre);
+}
+
+.btn-secondary {
+    border: 2px solid var(--couleur-olive);
+    color: var(--couleur-olive);
+    background: transparent;
+}
+
+.btn-secondary:hover {
+    background-color: var(--couleur-olive);
+    color: var(--couleur-fond-sombre);
+}
+
+/* --- PROJETS (GRID) --- */
+.projects {
+    padding: 80px 50px;
+    background-color: var(--couleur-fond-sombre);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-align: center;
+    border-bottom: 3px solid var(--couleur-jaune-neon);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: #2a2033; /* Une version légèrement plus sombre du fond pour le contraste */
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid var(--couleur-violet-moyen);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--couleur-jaune-neon);
+}
+
+.card-image {
+    height: 200px;
+    width: 100%;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+    color: var(--couleur-jaune-neon);
+}
+
+.tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    background-color: var(--couleur-vert-fonce);
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 40px;
+    background-color: #251c2e;
+    color: var(--texte-gris);
+    border-top: 1px solid var(--couleur-vert-fonce);
+}

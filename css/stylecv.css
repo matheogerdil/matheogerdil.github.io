@@ -1,0 +1,171 @@
+/* --- STYLE PAGE PARCOURS (Web Style) --- */
+
+.cv-hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(180deg, var(--couleur-fond-sombre) 0%, #2a2033 100%);
+}
+
+.cv-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.cv-hero h2 {
+    color: var(--couleur-olive);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.bio {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+    color: var(--texte-gris);
+}
+
+.cv-contact-bar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--couleur-jaune-neon);
+}
+
+.cv-contact-bar span {
+    border: 1px solid var(--couleur-violet-moyen);
+    padding: 8px 15px;
+    border-radius: 30px;
+}
+
+/* Section Compétences (Grille) */
+.skills-section {
+    padding: 60px 20px;
+    background-color: #2a2033;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.skill-category h3 {
+    color: var(--couleur-violet-electrique);
+    margin-bottom: 20px;
+    border-left: 3px solid var(--couleur-jaune-neon);
+    padding-left: 10px;
+}
+
+.tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-tag, .lang-tag {
+    background-color: var(--couleur-fond-sombre);
+    border: 1px solid var(--couleur-violet-moyen);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.tech-tag:hover {
+    border-color: var(--couleur-jaune-neon);
+    transform: scale(1.05);
+    color: var(--couleur-jaune-neon);
+}
+
+/* Timeline Verticale */
+.timeline-section {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    border-left: 2px solid var(--couleur-violet-moyen);
+}
+
+.timeline-entry {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+/* Le point sur la ligne */
+.timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: -36px; /* Ajustement pour centrer sur la ligne */
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background-color: var(--couleur-jaune-neon);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--couleur-jaune-neon);
+}
+
+.timeline-date {
+    color: var(--couleur-olive);
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.timeline-content {
+    background-color: #2e2438;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.timeline-content:hover {
+    border-color: var(--couleur-violet-electrique);
+    transform: translateX(10px);
+}
+
+.timeline-content h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.timeline-content .company {
+    display: block;
+    color: var(--couleur-violet-electrique);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* Hobbies */
+.hobbies-section {
+    padding: 60px 20px;
+    background-color: var(--couleur-fond-sombre);
+    text-align: center;
+}
+
+.date-light {
+    color: var(--couleur-olive);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body{margin-left: 15px;}
+    .cv-hero h1 { font-size: 2.5rem; }
+    .timeline { border-left: none; padding-left: 0; }
+    .timeline-entry::before { display: none; }
+    .timeline-content:hover { transform: none; }
+}

@@ -1,0 +1,84 @@
+<!-- 
+Mathéo gerdil
+Portfolio 
+04/12/2025
+-->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PORTFOLIO.</div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Accueil</a></li>
+            <li><a href="./cv.html">CV</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="accueil" class="hero">
+        <div class="hero-content">
+            <p class="subtitle">Bienvenue sur mon espace</p>
+            <h1>Créativité & <span class="highlight">Design</span></h1>
+            <p class="description">
+                Je conçois des expériences numériques uniques en utilisant une palette audacieuse.
+            </p>
+            <a href="#projets" class="btn btn-primary">Voir mes travaux</a>
+            <a href="#contact" class="btn btn-secondary">Me contacter</a>
+        </div>
+    </header>
+
+    <section id="projets" class="projects">
+        <h2 class="section-title">Mes Réalisations</h2>
+
+        <div class="grid-container">
+            <a target="_blank" href="https://github.com/matheogerdil/HandballExtract/">
+                <div class="card">
+                    <div class="card-image" style="background-color: var(--couleur-olive);"></div>
+                    <div class="card-content">
+                        <h3>Projet Stat Handball</h3>
+                        <p>App qui recupre des données un pdf et recupère des statistiques puis les ajoutes sur le site kalisport</p>
+                        <span class="tag">Parsing</span><span class="tag">Python</span> <span class="tag">Insertion</span>
+                    </div>
+                </div>
+            </a>
+
+            <a target="_blank" href="https://github.com/matheogerdil/Tournoi_PiouPiou">
+                <div class="card">
+                    <div class="card-image" style="background-color: var(--couleur-violet-moyen);"></div>
+                    <div class="card-content">
+                        <h3>Projet Tpi Tournoi foot</h3>
+                        <p>Projet pour le diplome de cfc sur la cration de tounoi de foot</p>
+                        <span class="tag">Backend</span> <span class="tag">API</span><span class="tag">BDD</span>
+                    </div>
+                </div>
+            </a>
+
+
+            <div class="card">
+                <div class="card-image" style="background-color: var(--couleur-vert-fonce);"></div>
+                <div class="card-content">
+                    <h3>Projet Gamma</h3>
+                    <p>Campagne marketing avec un fort impact visuel.</p>
+                    <span class="tag">Marketing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
+    </footer>
+
+</body>
+
+</html>
