@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         scrollTrigger: {
             trigger: ".skills-section",
             start: "top 60%",
-            markers:true,
+            markers:false,
         },
         y: 30,
         opacity: 0,

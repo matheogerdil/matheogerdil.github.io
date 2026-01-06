@@ -2,7 +2,7 @@
 
 .cv-hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 80px 0;
     background: linear-gradient(180deg, var(--couleur-fond-sombre) 0%, #2a2033 100%);
 }
 
@@ -20,7 +20,7 @@
 }
 
 .bio {
-    max-width: 700px;
+
     margin: 0 auto 30px;
     font-size: 1.1rem;
     color: var(--texte-gris);
@@ -43,15 +43,15 @@
 
 /* Section Compétences (Grille) */
 .skills-section {
-    padding: 60px 20px;
+    padding: 60px 0;
     background-color: #2a2033;
+    width: 100%;
 }
 
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
-    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -85,9 +85,9 @@
 
 /* Timeline Verticale */
 .timeline-section {
-    padding: 80px 20px;
-    max-width: 900px;
+    padding: 80px 0;
     margin: 0 auto;
+   width:100% ; 
 }
 
 .timeline {
@@ -100,7 +100,10 @@
     margin-bottom: 50px;
     position: relative;
 }
-
+main{
+    width: 100vw;
+    box-sizing: border-box;
+}
 /* Le point sur la ligne */
 .timeline-entry::before {
     content: '';
@@ -124,10 +127,12 @@
 
 .timeline-content {
     background-color: #2e2438;
-    padding: 20px;
+    padding: 20px 2px;
     border-radius: 8px;
     border: 1px solid transparent;
     transition: 0.3s;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .timeline-content:hover {
@@ -163,7 +168,6 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    body{margin-left: 15px;}
     .cv-hero h1 { font-size: 2.5rem; }
     .timeline { border-left: none; padding-left: 0; }
     .timeline-entry::before { display: none; }

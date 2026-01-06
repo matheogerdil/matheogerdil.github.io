@@ -1,23 +1,30 @@
-
 :root {
-    /* Palette extraite de ton image */
+    /* --- COULEURS --- */
     --couleur-violet-electrique: #8A16EF;
     --couleur-olive: #A9B02C;
     --couleur-jaune-neon: #E3F000;
     --couleur-violet-moyen: #6B349B;
     --couleur-vert-fonce: #6D7038;
-    --couleur-fond-sombre: #3B2E46; /* Utilisé pour le background principal */
-    
-    /* Couleurs pour le texte */
+    --couleur-fond-sombre: #3B2E46; 
     --texte-blanc: #ffffff;
     --texte-gris: #e0e0e0;
+
+    /* --- ESPACEMENT FLUIDE --- */
+    /* Padding latéral qui change selon l'écran (20px sur mobile -> 50px sur PC) */
+    --padding-container: clamp(20px, 5vw, 50px);
 }
 
-/* --- RESET --- */
+/* --- RESET GLOBAL (Important pour le responsive) --- */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Permet aux éléments de ne pas dépasser 100% de largeur */
+}
+
+html {
+    /* Taille de base fluide : entre 14px et 16px selon la largeur de l'écran */
+    font-size: clamp(14px, 1vw + 10px, 16px);
+    scroll-behavior: smooth;
 }
 
 body {
@@ -25,6 +32,8 @@ body {
     background-color: var(--couleur-fond-sombre);
     color: var(--texte-blanc);
     line-height: 1.6;
+    width: 100vw;
+    box-sizing: border-box;
 }
 
 a {
@@ -42,21 +51,31 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background-color: rgba(59, 46, 70, 0.95); /* Légère transparence sur le fond sombre */
+    /* Utilisation de la variable fluide pour l'espacement */
+    padding: 20px var(--padding-container);
+    background-color: rgba(59, 46, 70, 0.95);
+    position: sticky; /* Reste en haut au scroll */
     top: 0;
+    z-index: 1000;
     border-bottom: 2px solid var(--couleur-violet-moyen);
+    flex-wrap: wrap; /* Permet au menu de passer à la ligne sur très petits écrans */
 }
 
 .logo {
-    font-size: 1.5rem;
+    /* Le logo ne sera jamais plus petit que 1.5rem et jamais plus grand que 2rem */
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: bold;
     color: var(--couleur-jaune-neon);
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: clamp(15px, 3vw, 30px); /* L'espace entre les liens réduit sur mobile */
+}
+
+.nav-links a {
+    font-size: 1rem;
+    white-space: nowrap; /* Empêche le texte des liens de se couper */
 }
 
 .nav-links a:hover {
@@ -65,8 +84,9 @@ ul {
 
 /* --- HERO SECTION --- */
 .hero {
-    height: 110vh;
-    width: 100vw;
+    /* min-height au lieu de height fixe pour éviter de couper le contenu sur petits écrans */
+    min-height: 90vh; 
+    padding: 80px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,16 +94,22 @@ ul {
     background: radial-gradient(circle at center, var(--couleur-violet-moyen) 0%, var(--couleur-fond-sombre) 70%);
 }
 
+.hero-content {
+    width: 100%;
+    max-width: 800px;
+}
+
 .hero h1 {
-    font-size: 4rem;
+    /* TEXTE RESPONSIVE : Min 2.5rem (mobile) -> Max 5rem (PC) */
+    font-size: clamp(2.5rem, 8vw, 5rem);
     margin-bottom: 20px;
     line-height: 1.1;
-    box-shadow: 5px -3px 50px 8px #E3F000;
 }
 
 .highlight {
     color: var(--couleur-violet-electrique);
-    background: var(--couleur-jaune-neon); /* Contraste fort */
+    background: var(--couleur-jaune-neon); /* Ajout d'un fond pour lisibilité */
+    color: var(--couleur-fond-sombre);
     padding: 0 10px;
     display: inline-block;
     transform: skew(-5deg);
@@ -95,23 +121,28 @@ ul {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 10px;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
 }
 
 .description {
     max-width: 600px;
     margin: 0 auto 40px;
     color: var(--texte-gris);
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    padding: 0 15px; /* Marge de sécurité sur mobile */
 }
 
 /* --- BOUTONS --- */
 .btn {
-    padding: 12px 30px;
+    /* Padding en 'em' pour qu'il s'adapte à la taille du texte */
+    padding: 0.8em 2em; 
     border-radius: 5px;
     font-weight: bold;
-    margin: 0 10px;
+    margin: 10px; /* Un peu de marge pour qu'ils ne se collent pas en wrap */
     cursor: pointer;
     border: none;
+    font-size: 1rem;
+    display: inline-block; /* Important pour que le padding fonctionne bien */
 }
 
 .btn-primary {
@@ -136,69 +167,105 @@ ul {
     color: var(--couleur-fond-sombre);
 }
 
-/* --- PROJETS (GRID) --- */
+/* --- PROJETS (GRID RESPONSIVE) --- */
 .projects {
-    padding: 80px 50px;
+    padding: 80px var(--padding-container);
     background-color: var(--couleur-fond-sombre);
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 50px;
     text-align: center;
     border-bottom: 3px solid var(--couleur-jaune-neon);
     display: inline-block;
     padding-bottom: 10px;
+    width: 100%; /* S'assure que le titre est centré correctement */
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* MAGIE RESPONSIVE : Crée autant de colonnes que possible */
+    /* minmax(280px, 1fr) signifie : la carte fait minimum 280px de large, sinon elle passe à la ligne */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
 .card {
-    background-color: #2a2033; /* Une version légèrement plus sombre du fond pour le contraste */
+    background-color: #2a2033;
     border-radius: 10px;
-    overflow: hidden;
+    overflow:visible;
     transition: transform 0.3s ease;
     border: 1px solid var(--couleur-violet-moyen);
+    display: flex;
+    flex-direction: column; /* S'assure que le contenu s'empile bien */
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px); /* Réduit un peu le mouvement pour être plus subtil */
     border-color: var(--couleur-jaune-neon);
 }
 
 .card-image {
+
     height: 200px;
     width: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
 .card-content {
     padding: 20px;
+    flex-grow: 1;
 }
 
 .card-content h3 {
     margin-bottom: 10px;
     color: var(--couleur-jaune-neon);
+    font-size: 1.4rem;
 }
 
 .tag {
     display: inline-block;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     background-color: var(--couleur-vert-fonce);
-    padding: 5px 10px;
+    padding: 5px 12px;
     border-radius: 20px;
     margin-top: 15px;
     margin-right: 5px;
+    color: white;
 }
 
 /* --- FOOTER --- */
 footer {
     text-align: center;
-    padding: 40px;
+    padding: 40px 20px;
     background-color: #251c2e;
     color: var(--texte-gris);
     border-top: 1px solid var(--couleur-vert-fonce);
+    font-size: 0.9rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .hero {
+        padding-top: 40px;
+    }
+
+    .btn {
+        /*Bouton qui prennent tou l'écran*/
+        width: 100%;
+        display: block;
+        margin: 10px 0;
+    }
+    
+    .section-title {
+        display: block; 
+    }
 }
